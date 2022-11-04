@@ -36,7 +36,8 @@ export default function Timings() {
     async function addRoutes() {
         try {
             if(!((name==='')||(mobile===null))){
-                const routeData=({name,mobile,...inputFields});
+                const values=[...inputFields];
+                const routeData=({name,mobile,values});
                 console.log(routeData);
                 setLoading(true);
                 const db=getFirestore(app);

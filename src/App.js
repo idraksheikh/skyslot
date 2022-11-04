@@ -13,6 +13,7 @@ import {
 import HomePage from './Components/HomePage';
 import Locate from './Components/Locate';
 import ShowTimings from './Components/ShowTimings';
+import Footer from './Components/Footer';
 
 
 
@@ -30,6 +31,7 @@ function App() {
           <Route  exact path="/add-locality" element={<Locate/>} />
           <Route  exact path="/show-timing" element={<ShowTimings/>} />
         </Routes>
+      <Footer/>
       </Router>  
       
  
