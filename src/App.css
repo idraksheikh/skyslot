@@ -54,10 +54,21 @@ width: 500;
 color: #259BAB;
 height: 900;
 }
+.headerPara{
+  color:#259BAB ;
+}
 .header{
   background-color: #DEF5E5;
   width: "100%";
-  height: 1000;
+  height: 250px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.headerText{
+  font-weight: bold;
+  position: relative;
+
 }
 @keyframes App-logo-spin {
   from {

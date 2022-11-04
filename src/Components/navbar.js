@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function NavBar() {
+  
   return (
     <Navbar collapseOnSelect expand="lg" style={{background:"#DEF5E5"}} variant="dark" >
       <Container>
@@ -27,8 +28,8 @@ function NavBar() {
             </NavDropdown> */}
           </Nav>
           <Nav >
-          <Nav.Link href="#deets" className='navLink'>Home</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes" className='navLink'>
+          <Nav.Link href="/" className='navLink'>Home</Nav.Link>
+            <Nav.Link eventKey={2} href="/" className='navLink'>
             BinMan-Timings
             </Nav.Link>
             <Nav.Link href="#features" className='navLink'>Add-Your-Locality</Nav.Link>
