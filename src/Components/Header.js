@@ -1,8 +1,10 @@
-import React from "react";
+import {React} from "react";
 import Container from "react-bootstrap/esm/Container";
 import headerImage from "../headerImage.png"
 import Button from 'react-bootstrap/Button';
+import { useNavigate } from 'react-router-dom';
 const Header=()=>{
+    const navigate = useNavigate();
     return(
 <>
     <div className="header" >
@@ -17,7 +19,8 @@ const Header=()=>{
         
         <p className="headerPara" >As a Garbage collector Kindly <br/>
         share your schedule </p>
-        <Button style={{backgroundColor:"#259BAB",border:"solid #259BAB 5px"}} > Add Route</Button>{' '}
+        <Button style={{backgroundColor:"#259BAB",border:"solid #259BAB 5px"}} onClick={()=>{
+                   navigate("/binman") }}> Add Route</Button>
         
         
         </div>

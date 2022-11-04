@@ -29,11 +29,11 @@ function NavBar() {
           </Nav>
           <Nav >
           <Link to="/" style={{textDecoration:"none"}}><Nav.Link  href="#deets" className='navLink'>Home</Nav.Link></Link>
-          <Link to="/binman" style={{textDecoration:"none"}}><Nav.Link to="/binman" eventKey={2} href="#memes" className='navLink'>
+          <Link to="/show-timing" style={{textDecoration:"none"}}><Nav.Link to="/binman" eventKey={2} href="#memes" className='navLink'>
             BinMan-Timings
             </Nav.Link></Link>
-            <Nav.Link href="#features" className='navLink'>Add-Your-Locality</Nav.Link>
-            <Nav.Link href="#pricing" className='navLink'>Share your Issue</Nav.Link>
+            <Link to="/add-locality" style={{textDecoration:"none"}}><Nav.Link href="#features" className='navLink'>Add-Your-Locality</Nav.Link></Link>
+            <Link to="/contact" style={{textDecoration:"none"}}><Nav.Link href="#pricing" className='navLink'>Share your Issue</Nav.Link></Link>
             {/* <Nav.Link href="#features"></Nav.Link>
             <Nav.Link href="#pricing"></Nav.Link> */}
           </Nav>

@@ -40,7 +40,7 @@ export default function Timings() {
                 console.log(routeData);
                 setLoading(true);
                 const db=getFirestore(app);
-                const docref=doc(collection(db,'collectorsroute',));
+                const docref=doc(collection(db,'collectorsroute'));
                 await setDoc(docref,routeData);
                 setLoading(false);
                 alert("Data Entered Successfully.");

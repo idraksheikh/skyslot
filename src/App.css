@@ -27,6 +27,28 @@
   color: white;
 }
 
+
+.Contact-form {
+  margin-top: 100px;
+  color: #61dafb;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: "100%";
+}
+.Contact-form-field {
+  margin-top: 20px;
+}
+
+.custom-btn {
+  background-color: #8EC3B0;
+  color: black;
+  border-radius: 3px;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  
+}
+
 .navLink{
   font-weight: bold;
   color:#259BAB;
