@@ -1,9 +1,13 @@
 import { React, useState } from 'react';
 import { Container, TextField,IconButton,Button} from '@mui/material';
-import { TimePicker, LocalizationProvider } from '@mui/x-date-pickers-pro';
+// import { TimePicker, LocalizationProvider } from '@mui/x-date-pickers-pro';
 // Import the functions you need from the SDKs you need
 import app from './initfirebase';
 import { getFirestore, doc,collection,setDoc } from 'firebase/firestore/lite';
+import collectorImage from "../collector.png";
+import { CircularProgressbar } from 'react-circular-progressbar';
+// import { confirmAlert } from 'react-confirm-alert';
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -27,19 +31,27 @@ export default function Timings() {
 
     const[name,setName]=useState('');
     const[mobile,setMobile]=useState();
-
+    const[loading,setLoading]=useState(false);    
     // const ref=firebase.firestore().collection('collecterroute');
     async function addRoutes() {
         try {
-            if(!((name=='')||(mobile==null))){
+            if(!((name==='')||(mobile===null))){
                 const routeData=({name,mobile,...inputFields});
                 console.log(routeData);
+                setLoading(true);
                 const db=getFirestore(app);
                 const docref=doc(collection(db,'collectorsroute',));
                 await setDoc(docref,routeData);
+                setLoading(false);
+                alert("Data Entered Successfully.");
+            }
+            else{
+                alert("Please Enter name and mobile number.");
             }
                 
         } catch (error) {
+            setLoading(false);
+            alert("Something went wrong.");
             console.log(error);    
         }
         
@@ -67,12 +79,14 @@ export default function Timings() {
    }
 
 
-    return (
-        <Container className='Timing-header'>
-            <h1 className='heading'>Add Routes</h1>
+    return (<>
+        <img src={collectorImage } style={{width:"40%",marginLeft:"5%",marginTop:"5%"}} alt="collector image"/>
+        <Container className='Timing-header' style={{color:"#259BAB",marginTop:"-25%",marginLeft:"50%",fontFamily:"Roboto Slab, serif"}}>
+        
+            <h1 className='heading' style={{marginLeft:"10%"}}><span style={{color:"#256D85", fontWeight:"bold"}}>Add</span> <span style={{color:"black", fontWeight:"bold"} }>Routes</span></h1>
             <form>
                 <TextField
-                    className='m-3'
+                    className='mt-3 mb-3 mr-3'
                     id="outlined-name"
                     label="Name"
                     name="name"
@@ -90,7 +104,7 @@ export default function Timings() {
                 {inputFields.map((inputFields, index) => (
                     <div key={index}>
                         <TextField
-                            className='m-3'
+                            className='mt-3 mb-3 mr-3'
                             id="outlined-name"
                             label="Location"
                             name="location"
@@ -123,9 +137,10 @@ export default function Timings() {
 
                     </div>
                 ))}
-                <Button onClick={event=>addRoutes()} size="Large" style={{backgroundColor:"#259BAB",color:"#ffffff"}} className="">Submit</Button>
+                {loading? <CircularProgressbar  />:<Button onClick={event=>addRoutes()} size="Large" style={{backgroundColor:"#259BAB",color:"#ffffff",marginLeft:"200px",fontFamily:"Roboto Slab, serif"}} className="">Submit</Button>}
             </form>
+            
         </Container>
-
+</>
     )
 }

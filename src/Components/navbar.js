@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import {Link} from 'react-router-dom';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function NavBar() {
@@ -8,7 +9,7 @@ function NavBar() {
     <Navbar collapseOnSelect expand="lg" style={{background:"#DEF5E5"}} variant="dark" >
       <Container>
         <Navbar.Brand href="#home" ></Navbar.Brand>
-        <h1 className='logoText'>Skyslot</h1>
+        <Link to="/" style={{textDecoration:"none"}}> <h1 className='logoText'>Skyslot</h1></Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -27,10 +28,10 @@ function NavBar() {
             </NavDropdown> */}
           </Nav>
           <Nav >
-          <Nav.Link href="#deets" className='navLink'>Home</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes" className='navLink'>
+          <Link to="/" style={{textDecoration:"none"}}><Nav.Link  href="#deets" className='navLink'>Home</Nav.Link></Link>
+          <Link to="/binman" style={{textDecoration:"none"}}><Nav.Link to="/binman" eventKey={2} href="#memes" className='navLink'>
             BinMan-Timings
-            </Nav.Link>
+            </Nav.Link></Link>
             <Nav.Link href="#features" className='navLink'>Add-Your-Locality</Nav.Link>
             <Nav.Link href="#pricing" className='navLink'>Share your Issue</Nav.Link>
             {/* <Nav.Link href="#features"></Nav.Link>
