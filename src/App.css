@@ -24,10 +24,41 @@
   color: white;
 }
 
+.navLink{
+  font-weight: bold;
+  color:#259BAB;
+}
+.navLink:hover{
+  border-bottom:  #9ED5C5 solid 5px;
+  color: #9ED5C5;
+}
+.navLink:active{
+  border-bottom:  #FFFAD7 solid 5px;
+  color: #FFFAD7;
+}
+
+
+
+.logoText{
+  color: #259BAB;
+  font-size: x-large;
+  font-weight: white;
+}
+
 .App-link {
   color: #61dafb;
 }
-
+.innerHeader{
+background-color: white;
+width: 500;
+color: #259BAB;
+height: 900;
+}
+.header{
+  background-color: #DEF5E5;
+  width: "100%";
+  height: 1000;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
