@@ -13,7 +13,8 @@ const Header=()=>{
         <h2 className="headerText">Hello!!</h2>
         <h2 className="headerText">We Are <span style={{color:"#259BAB"}}>Skyslot</span></h2>
 
-        <p>Lorem Ipsum is simply dummy text of the printing when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+        <p style={{fontWeight:"bold"}}> "when you refuse to reuse,<br/>  
+        its the earth you abuse its just one straw ,said 8 billion people "</p>
         
         <p className="headerPara" >As a Garbage collector Kindly <br/>
         share your schedule </p>
