@@ -8,7 +8,7 @@ const Footer=()=>{
 
 <div class="footer-left">
 
-    <h3>Sky<span>slot</span></h3>
+    <h3 style={{fontFamily:"Roboto Slab, serif"}}>Clean<span style={{fontFamily:"Roboto Slab, serif"}}>Sweep</span></h3>
 
     <p class="footer-links">
     <Link to="/" style={{textDecoration:"none"}}><a href="#" class="link-1">Home</a></Link>
@@ -39,7 +39,7 @@ const Footer=()=>{
 
     <div>
         <i class="fa fa-envelope"></i>
-        <p>E-mail:-<a href="gehloth03@gmail.com">gehloth03@gmail.com</a></p>
+        <p>E-mail:-<a href="mailto:gehloth03@gmail.com">gehloth03@gmail.com</a></p>
     </div>
 
 </div>

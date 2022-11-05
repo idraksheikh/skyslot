@@ -7,6 +7,7 @@ import { getFirestore, doc, collection, getDocs } from 'firebase/firestore/lite'
 import collectorImage from "../collector.png";
 import { CircularProgressbar } from 'react-circular-progressbar';
 import { useNavigate } from 'react-router-dom';
+import clock from "../clock-icon.gif";
 
 export default function ShowTimings() {
     const [count, setCount] = useState(1);
@@ -27,7 +28,7 @@ export default function ShowTimings() {
                 querySnapshot.forEach((doc) => {
 
                     doc.data().values.forEach((child) => {
-                        if (child.location == location) {
+                        if (child.location == location.toLowerCase()) {
                             setEntries([...entries, { name: doc.data().name, number: doc.data().mobile, timings: child.timings, location: child.location }]);
                         }
 
@@ -38,7 +39,7 @@ export default function ShowTimings() {
                 });
                 setData(true);
                 setLoading(false);
-                alert("Data Entered Successfully.");
+                
             }
             else {
                 alert("Please Enter name and mobile number.");
@@ -62,17 +63,21 @@ export default function ShowTimings() {
             }}> Add Route</Button>{' '}
 
             <form>
-                <div style={{ marginTop: "3%", marginLeft: "1%" }}>
+                <div style={{ marginTop: "3%", marginLeft: "15%" }}>
                     <TextField id="outlined-basic" label="Location" variant="outlined" style={{ width: "40%", marginLeft: "15%" }} name="location" onChange={event => setLocation(event.target.value)} />
                     {loading ? <CircularProgressbar /> : <Button onClick={event => showRoutes(location)} size="Large" style={{ backgroundColor: "#259BAB", color: "#ffffff", fontFamily: "Roboto Slab, serif", marginLeft: "1%", marginTop: "0.1%", width: "10%", padding: "1%" }} className="">Submit</Button>}
                 </div>
             </form>
-            <div style={{ marginTop: "10%", marginLeft: "5%", marginRight: "5%" }}>
+            <div style={{ marginTop: "5%", marginLeft: "5%", marginRight: "5%" }}>
 
                 {
                     data
                         ?
-                        <div>
+                        <div className="row">
+      <div className="s-heading" style={{marginBottom:"2%"}}><h1> Garbage collector Timings <span>  for your Locality</span><img src={clock} style={{width:"10%"}}/></h1>
+    
+      
+      </div>
                             <table className="table table-stripped">
                                 <thead>
                                     <tr>

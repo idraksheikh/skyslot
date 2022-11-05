@@ -6,6 +6,7 @@ import app from './initfirebase';
 import { getFirestore, doc,collection,setDoc } from 'firebase/firestore/lite';
 import collectorImage from "../collector.png";
 import { CircularProgressbar } from 'react-circular-progressbar';
+import { useNavigate } from 'react-router-dom';
 // import { confirmAlert } from 'react-confirm-alert';
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -27,7 +28,7 @@ export default function Timings() {
         { location: '', timings: '' },]
     );
 
-
+    const navigate = useNavigate();
 
     const[name,setName]=useState('');
     const[mobile,setMobile]=useState();
@@ -44,7 +45,8 @@ export default function Timings() {
                 const docref=doc(collection(db,'collectorsroute'));
                 await setDoc(docref,routeData);
                 setLoading(false);
-                alert("Data Entered Successfully.");
+                alert("Data Send Successfully.");
+                navigate("/");
             }
             else{
                 alert("Please Enter name and mobile number.");

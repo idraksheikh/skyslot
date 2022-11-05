@@ -9,7 +9,7 @@ function NavBar() {
     <Navbar collapseOnSelect expand="lg" style={{background:"#DEF5E5"}} variant="dark" >
       <Container>
         <Navbar.Brand href="#home" ></Navbar.Brand>
-        <Link to="/" style={{textDecoration:"none"}}><h1 className='logoText'>Skyslot</h1></Link>
+        <Link to="/" style={{textDecoration:"none"}}><h1 className='logoText' style={{fontFamily:"Roboto Slab, serif"}}><span style={{color:"black"}}>Clean</span>Sweep</h1></Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">

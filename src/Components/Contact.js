@@ -8,10 +8,11 @@ import contactGreen from '../contactGreen.gif';
 import app from './initfirebase';
 import { getFirestore, doc,collection,setDoc } from 'firebase/firestore/lite';
 import { CircularProgressbar } from 'react-circular-progressbar';
+import { useNavigate } from 'react-router-dom';
 
 
 function Contact() {
-
+  const navigate = useNavigate();
   const[name,setName]=useState('');
   const[number,setNumber]=useState();
   const[issue,setIssue]=useState('');
@@ -28,7 +29,8 @@ function Contact() {
             const docref=doc(collection(db,'userIssue'));
             await setDoc(docref,issueData);
             setLoading(false);
-            alert("Data Entered Successfully.");
+            alert("Data Send Successfully.");
+            navigate("/");
         }
         else{
             alert("Please Enter values in fields.");
@@ -63,7 +65,7 @@ function Contact() {
     <br/>
     <TextField id="outlined-basic" label="Locality" variant="outlined" style={{width:"70%", marginLeft:"15%", marginTop:30}} name="locality" onChange={event=>setLocality(event.target.value)} />
     <br/>
-    {loading? <CircularProgressbar  />:<Button style = {{backgroundColor:'#8EC3B0',border:'solid #259BAB 5px',marginTop:'5%',marginLeft:'40%',marginBottom:'10%',fontFamily:"Roboto Slab, serif"}} onClick={event=>submitIssue()}>Submit</Button>}
+    {loading? <CircularProgressbar  />:<Button style = {{backgroundColor:'#259BAB',border:'solid #259BAB 5px',marginTop:'5%',marginLeft:'40%',marginBottom:'10%',fontFamily:"Roboto Slab, serif"}} onClick={event=>submitIssue()}>Submit</Button>}
 
   </Col>
   </Row>
