@@ -22,8 +22,8 @@ const TOKEN = 'pk.eyJ1IjoiZ3VycHJlZXRhY2hpbnQiLCJhIjoiY2wwMTl0ZjhzMDI2YzNscGEybX
 const Locate = () => {
     const navigate = useNavigate();
     const [marker, setMarker] = useState({
-        latitude: 40,
-        longitude: -100
+        latitude: 75.8577,
+        longitude: 22.7196
     });
 
     const [name, setName] = useState('');
@@ -49,6 +49,19 @@ const Locate = () => {
     const [lat, setLat] = useState(22.7196);
     // const [viewport, setViewport] = useState();
     const [showPopup, setShowPopup] = useState(true);
+
+    const searchResult = (search) => {
+        fetch(`https://api.geoapify.com/v1/geocode/search?text=${search}&format=json&apiKey=43523aebdf6c49e39fc7fd21720e56ee`)
+            .then(response => response.json())
+            .then(result => {
+                setMarker({
+                    longitude: result.results[0].lon,
+                    latitude: result.results[0].lat,
+                });
+                console.log(result.results[0]);
+            })
+            .catch(error => console.log('error', error));
+    }
 
     async function submitLocality() {
         try {
@@ -80,10 +93,10 @@ const Locate = () => {
 
 
     return (
-        <Container style={{marginTop:"-3%"}}>
+        <Container style={{ marginTop: "-3%" }}>
             <Row>
                 <Col className='Contact-form' >
-                    <h1 style={{ marginLeft: "8%"}}><span style={{ color: "#256D85", fontWeight: "bold", fontFamily: "Roboto Slab, serif" }}>Add Your</span><span style={{ color: "black", fontWeight: "bold", fontFamily: "Roboto Slab, serif" }}> Locality</span><img src={mappin} style={{ width: "17%" }} /></h1>
+                    <h1 style={{ marginLeft: "8%" }}><span style={{ color: "#256D85", fontWeight: "bold", fontFamily: "Roboto Slab, serif" }}>Add Your</span><span style={{ color: "black", fontWeight: "bold", fontFamily: "Roboto Slab, serif" }}> Locality</span><img src={mappin} style={{ width: "17%" }} /></h1>
 
                     <div className="s-para"><p >If Garbage collecting service is not there in your Locality, Kindly Add you Location so that BinMan can reach to you
                     </p>
@@ -94,7 +107,7 @@ const Locate = () => {
                     <TextField id="outlined-basic" label="Contact Number" variant="outlined" style={{ width: "70%", marginLeft: "8%", marginTop: 30 }} name="number" onChange={event => setNumber(event.target.value)} />
                     <br />
 
-                    <TextField id="outlined-basic" label="Locality" variant="outlined" style={{ width: "70%", marginLeft: "8%", marginTop: 30 }} name="locality" onChange={event => setLocality(event.target.value)} />
+                    <TextField id="outlined-basic" label="Locality" variant="outlined" style={{ width: "70%", marginLeft: "8%", marginTop: 30 }} name="locality" onChange={event => setLocality(event.target.value)} onBlur={(event)=>{searchResult(locality)}}/>
                     <br />
                     {loading ? <CircularProgressbar /> : <Button style={{ backgroundColor: '#259BAB', border: 'solid #259BAB 5px', marginTop: '5%', marginLeft: '30%', marginBottom: '10%', fontFamily: "Roboto Slab, serif" }} onClick={event => { submitLocality() }}>Submit</Button>}
 
@@ -109,22 +122,22 @@ const Locate = () => {
                             border: '2px solid red'
                         }}
                         initialViewState={{
-                            latitude: lat,
-                            longitude: lng,
-                            zoom: 15,
+                            latitude: marker.longitude,
+                            longitude: marker.latitude,
+                            zoom: 10,
                             pitch: 45,
                         }}
                         mapStyle="mapbox://styles/gurpreetachint/cl08awqyn002614mgiqa5daxi"
                     >
                         <Marker
-                            longitude={lng}
-                            latitude={lat}
+                            longitude={marker.longitude}
+                            latitude={marker.latitude}
                             draggable={true}
                             onDragEnd={onMarkerDragEnd}
                         >
                         </Marker>
                         {showPopup && (
-                            <Popup longitude={lng} latitude={lat}
+                            <Popup longitude={marker.longitude} latitude={marker.latitude}
                                 anchor="top"
                                 onClose={() => setShowPopup(false)}>
                                 Your Location
