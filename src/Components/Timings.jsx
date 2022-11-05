@@ -140,7 +140,7 @@ export default function Timings() {
 
                     </div>
                 ))}
-                {loading? <CircularProgressbar  />:<Button onClick={event=>addRoutes()} size="Large" style={{backgroundColor:"#259BAB",color:"#ffffff",marginLeft:"200px",fontFamily:"Roboto Slab, serif"}} className="">Submit</Button>}
+                {loading? <CircularProgressbar  />:<Button onClick={event=>addRoutes()} size="Large" style={{backgroundColor:"#259BAB",color:"#ffffff",marginLeft:"200px",marginBottom:"1%",fontFamily:"Roboto Slab, serif"}} className="">Submit</Button>}
             </form>
             
         </Container>
