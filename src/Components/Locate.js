@@ -1,12 +1,12 @@
 import './Locate';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import Map, { Marker, NavigationControl, GeolocateControl, FullscreenControl, Popup } from "react-map-gl";
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { TextField, TextareaAutosize } from '@mui/material';
+import { TextField} from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import mappin from '../mappin.gif'
 import app from './initfirebase';
@@ -28,25 +28,25 @@ const Locate = () => {
 
     const [name, setName] = useState('');
     const [number, setNumber] = useState();
-    const [issue, setIssue] = useState('');
+    // const [issue, setIssue] = useState('');
     const [locality, setLocality] = useState('');
     const [loading, setLoading] = useState(false);
 
 
-    const [events, logEvents] = useState({});
-    const onMarkerDragEnd = useCallback((event: MarkerDragEvent) => {
-        logEvents(_events => ({ ..._events, onDragEnd: event.lngLat }));
-        setMarker({
-            longitude: event.lngLat.lng,
-            latitude: event.lngLat.lat,
-        });
-        console.log(event.lngLat.lng)
-    }, []);
+    // const [events, logEvents] = useState({});
+    // const onMarkerDragEnd = useCallback((event: MarkerDragEvent) => {
+    //     // logEvents(_events => ({ ..._events, onDragEnd: event.lngLat }));
+    //     setMarker({
+    //         longitude: event.lngLat.lng,
+    //         latitude: event.lngLat.lat,
+    //     });
+    //     console.log(event.lngLat.lng)
+    // }, []);
 
 
 
-    const [lng, setLng] = useState(75.8577);
-    const [lat, setLat] = useState(22.7196);
+    // const [lng, setLng] = useState(75.8577);
+    // const [lat, setLat] = useState(22.7196);
     // const [viewport, setViewport] = useState();
     const [showPopup, setShowPopup] = useState(true);
 
@@ -96,7 +96,7 @@ const Locate = () => {
         <Container style={{ marginTop: "-3%" }}>
             <Row>
                 <Col className='Contact-form' >
-                    <h1 style={{ marginLeft: "8%" }}><span style={{ color: "#256D85", fontWeight: "bold", fontFamily: "Roboto Slab, serif" }}>Add Your</span><span style={{ color: "black", fontWeight: "bold", fontFamily: "Roboto Slab, serif" }}> Locality</span><img src={mappin} style={{ width: "17%" }} /></h1>
+                    <h1 style={{ marginLeft: "8%" }}><span style={{ color: "#256D85", fontWeight: "bold", fontFamily: "Roboto Slab, serif" }}>Add Your</span><span style={{ color: "black", fontWeight: "bold", fontFamily: "Roboto Slab, serif" }}> Locality</span><img src={mappin} style={{ width: "17%" }}  alt="location"/></h1>
 
                     <div className="s-para"><p >If Garbage collecting service is not there in your Locality, Kindly Add you Location so that BinMan can reach to you
                     </p>
@@ -133,7 +133,7 @@ const Locate = () => {
                             longitude={marker.longitude}
                             latitude={marker.latitude}
                             draggable={true}
-                            onDragEnd={onMarkerDragEnd}
+                            // onDragEnd={onMarkerDragEnd}
                         >
                         </Marker>
                         {showPopup && (

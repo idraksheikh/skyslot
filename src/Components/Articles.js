@@ -88,7 +88,7 @@ const Articles=()=>{
         </figcaption><a href="https://www.businesswaste.co.uk/agricultural-waste-management/"></a>
       </figure>
   </div>
-</Carousel>;
+</Carousel>
      </div>
 
 </div>
