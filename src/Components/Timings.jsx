@@ -84,7 +84,7 @@ export default function Timings() {
 
     return (<>
         <img src={collectorImage } style={{width:"40%",marginLeft:"5%",marginTop:"5%"}} alt="collector image"/>
-        <Container  style={{fontFamily:"Roboto Slab, serif",color:"#259BAB",marginTop:"-25%",marginLeft:"50%"}}>
+        <Container  style={{fontFamily:"Roboto Slab, serif",color:"#259BAB",marginTop:"-25%",width:"50%",marginLeft:"50%",marginBottom:"10%"}}>
         
             <h1 className='heading' style={{marginLeft:"10%"}}><span style={{color:"#256D85", fontWeight:"bold"}}>Add</span> <span style={{color:"black", fontWeight:"bold"} }>Routes</span></h1>
             <form>
