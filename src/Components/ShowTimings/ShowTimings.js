@@ -2,15 +2,16 @@ import { React, useState } from 'react';
 import { Container, TextField, Button, Table } from '@mui/material';
 // import { TimePicker, LocalizationProvider } from '@mui/x-date-pickers-pro';
 // Import the functions you need from the SDKs you need
-import app from './initfirebase';
+import app from '../initfirebase';
 import { getFirestore, doc, collection, getDocs } from 'firebase/firestore/lite';
-import collectorImage from "../collector.png";
+// import collectorImage from "../collector.png";
 import { CircularProgressbar } from 'react-circular-progressbar';
 import { useNavigate } from 'react-router-dom';
-import clock from "../clock-icon.gif";
+import clock from "../../clock-icon.gif";
+import "./ShowTimings.css";
 
 export default function ShowTimings() {
-    const [count, setCount] = useState(1);
+    // const [count, setCount] = useState(1);
     const [loading, setLoading] = useState(false);
     const [location, setLocation] = useState([]);
     const [entries, setEntries] = useState([]);
@@ -28,7 +29,7 @@ export default function ShowTimings() {
                 querySnapshot.forEach((doc) => {
 
                     doc.data().values.forEach((child) => {
-                        if (child.location == location.toLowerCase()) {
+                        if (child.location == location.toUpperCase()) {
                             setEntries([...entries, { name: doc.data().name, number: doc.data().mobile, timings: child.timings, location: child.location }]);
                         }
 
@@ -39,7 +40,7 @@ export default function ShowTimings() {
                 });
                 setData(true);
                 setLoading(false);
-                
+
             }
             else {
                 alert("Please Enter name and mobile number.");
@@ -57,27 +58,28 @@ export default function ShowTimings() {
     }
 
     return (
-        <>  <div style={{ marginBottom: "13%" }}>
-            <Button style={{ backgroundColor: "#259BAB", border: "solid #259BAB 5px", color: "#ffffff", marginLeft: "90%", marginTop: "1%" }} onClick={() => {
+        <>  
+        <div className='ShowTimings-container' >
+            <div className='ShowTimings-button'><Button style={{ backgroundColor: "#259BAB", border: "solid #259BAB 5px", color: "#ffffff"}} onClick={() => {
                 navigate("/binman")
-            }}> Add Route</Button>{' '}
+            }}> Add Route</Button>{' '}</div>
 
             <form>
-                <div style={{ marginTop: "3%", marginLeft: "15%" }}>
-                    <TextField id="outlined-basic" label="Location" variant="outlined" style={{ width: "40%", marginLeft: "15%" }} name="location" onChange={event => setLocation(event.target.value)} />
-                    {loading ? <CircularProgressbar /> : <Button onClick={event => showRoutes(location)} size="Large" style={{ backgroundColor: "#259BAB", color: "#ffffff", fontFamily: "Roboto Slab, serif", marginLeft: "1%", marginTop: "0.1%", width: "10%", padding: "1%" }} className="">Submit</Button>}
+                <div className='ShowTimings-form'>
+                    <TextField id="outlined-basic" className='ShowTimings-Location' label="Location" variant="outlined"  name="location" onChange={event => setLocation(event.target.value)} />
+                    {loading ? <CircularProgressbar /> : <Button onClick={event => showRoutes(location)}  style={{ backgroundColor: "#259BAB", color: "#ffffff", fontFamily: "Roboto Slab, serif"}} >Submit</Button>}
                 </div>
             </form>
-            <div style={{ marginTop: "5%", marginLeft: "5%", marginRight: "5%" }}>
+            <div className='ShowTimings-table'>
 
                 {
                     data
                         ?
                         <div className="row">
-      <div className="s-heading" style={{marginBottom:"2%"}}><h1> Garbage collector Timings <span>  for your Locality</span><img src={clock} style={{width:"10%"}}/></h1>
-    
-      
-      </div>
+                            <div className="s-heading" style={{ marginBottom: "2%" }}><h1> Garbage collector Timings <span>  for your Locality</span><img src={clock} style={{ width: "10%" }} /></h1>
+
+
+                            </div>
                             <table className="table table-stripped">
                                 <thead>
                                     <tr>
@@ -88,24 +90,24 @@ export default function ShowTimings() {
                                     </tr>
                                 </thead>
                                 <tbody>
-{/*                                     
+                                    {/*                                     
                                         <tr >
                                             <td>{entries[0].name}</td>
                                             <td>{entries[0].location}</td>
                                             <td>{entries[0].timings}</td>
                                             <td>{entries[0].number}</td>
                                         </tr> */}
-                                        {entries && entries.map(
-                                        (value,index)=>{
-                                            return(
-                                                <tr key={index+1}>
-                                            <td>{value.name}</td>
-                                            <td>{value.location}</td>
-                                            <td>{value.timings}</td>
-                                            <td>{value.number}</td>
-                                        </tr>
+                                    {entries && entries.map(
+                                        (value, index) => {
+                                            return (
+                                                <tr key={index + 1}>
+                                                    <td>{value.name}</td>
+                                                    <td>{value.location}</td>
+                                                    <td>{value.timings}</td>
+                                                    <td>{value.number}</td>
+                                                </tr>
                                             )
-                                            
+
                                         }
                                     )}
 

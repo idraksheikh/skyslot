@@ -1,0 +1,65 @@
+
+    .headerPara2{
+      color:#259BAB ;
+      margin-bottom: 0.5rem;
+      font-size: 1.5vw;
+    }
+    .headerPara1{
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        font-size: 1.5vw;
+      }
+    .header{
+      background-color: #DEF5E5;
+      width: "100%";
+      height: 25vw;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+    }
+    .innerHeader{
+        background-color: #FAFAFA;
+        position: absolute;
+        margin-top: 10vw;
+        width: 65vw;
+        height: 30vw;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
+    }
+    .headerText{
+      font-weight: bold;
+      position: relative;
+      font-size: 2.25vw;
+      margin-bottom: 0.5rem;
+
+    }
+    .add-route{
+        background-color: #259BAB;
+        border: "solid #259BAB 5px"; 
+        font-size: 1.125vw;
+    }
+    
+    @media screen and (max-width:600px) and (min-width:400px){
+        .innerHeader{
+            background-color: #FAFAFA;
+            position: absolute;
+            margin-top: 10vw;
+            width: 65vw;
+            height: 35vw;
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    
+        }
+    }
+
+    @media screen and (max-width:400px){
+        .innerHeader{
+            background-color: #FAFAFA;
+            position: absolute;
+            margin-top: 10vw;
+            width: 65vw;
+            height: 38vw;
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    
+        }
+    }
+    

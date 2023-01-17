@@ -1,0 +1,50 @@
+/* .Contact-super-container {
+    display: flex;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.Contact-main-container {
+    display: flex;
+    flex-direction: column;
+    font-Family: "Roboto Slab serif";
+    color: "#259BAB";
+    justify-content: center;
+    align-items: center;
+}
+
+.Contact-form {
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-between;
+}
+
+.Contact-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Contact-Textfield {
+    height: 5vh;
+    width: 15vw;
+} */
+
+.Contact-mobDis{
+    display:none;
+}
+.Contact-desDis{
+    display: block;
+}
+@media screen and (max-width:800px) {
+    .Contact-mobDis{
+        display: block;
+    }
+    .Contact-desDis{
+        display:none;
+    }   
+}

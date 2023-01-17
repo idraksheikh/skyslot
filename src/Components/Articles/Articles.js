@@ -4,11 +4,12 @@ import React from "react";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
-import BioWaste from "../BioWaste.jpeg"
-import EWaste from "../E-waste.jpeg"
-import DomesticWaste from "../DomesticWaste.jpeg"
-import Chemical from "../Chemical.jpeg"
-import Agriculture from "../Agriculture.jpeg"
+import BioWaste from "../../BioWaste.jpeg"
+import EWaste from "../../E-waste.jpeg"
+import DomesticWaste from "../../DomesticWaste.jpeg"
+import Chemical from "../../Chemical.jpeg"
+import Agriculture from "../../Agriculture.jpeg"
+import "./Articles.css";
 const Articles=()=>{
     const responsive = {
         superLargeDesktop: {
@@ -21,11 +22,11 @@ const Articles=()=>{
           items: 3
         },
         tablet: {
-          breakpoint: { max: 1024, min: 464 },
+          breakpoint: { max: 1024, min: 646 },
           items: 2
         },
         mobile: {
-          breakpoint: { max: 464, min: 0 },
+          breakpoint: { max: 646, min: 0 },
           items: 1
         }
       };

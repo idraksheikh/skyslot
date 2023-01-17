@@ -1,0 +1,81 @@
+.ShowTimings-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-bottom: 15vw;
+    
+}
+.ShowTimings-button{
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    right: 5vw;
+    top: 1vw;
+}
+.ShowTimings-button Button{
+    width: 10vw;
+    height: 4vw;
+    font-size: 1.15vw;
+}
+.ShowTimings-form{
+    display: flex;
+    
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    top: 5vw;
+    left: 15vw;
+    
+}
+.ShowTimings-Location{
+    width: 50vw;
+}
+.ShowTimings-form Button{
+    position: relative;
+    left: 2.5vw;
+}
+.ShowTimings-table{
+    margin: 5vw;
+    position: relative;
+    top: 5vw;
+}
+
+@media screen and (max-width:600px) {
+    .ShowTimings-button Button{
+        width: 14vw;
+        height: 7vw;
+        font-size: 1.15vw;
+    }
+    .ShowTimings-form{
+        display: flex;
+        
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        top: 5vw;
+        left: 5vw;
+        
+    }
+    .ShowTimings-Location{
+        width: 50vw;
+    }
+    .ShowTimings-form Button{
+        position: relative;
+        left: 2.5vw;
+    }
+    
+.ShowTimings-button{
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    right: 10vw;
+    top: 1vw;
+}
+.ShowTimings-table{
+    margin: 10vw;
+    
+    position: relative;
+    top: 10vw;
+}
+
+}

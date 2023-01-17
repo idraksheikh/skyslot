@@ -1,7 +1,7 @@
 import React from "react";
-import Articles from "./Articles";
+import Articles from "./Articles/Articles";
 
-import Header from "./Header";
+import Header from "./Header/Header";
 
 const HomePage=()=>{
     return(

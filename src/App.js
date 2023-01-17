@@ -1,9 +1,9 @@
 // import Navbar from './Components/navbar';
 // import CollapsibleExample from './Components/navbar';
-import NavBar from './Components/navbar';
-import Timings from './Components/Timings';
+import NavBar from './Components/Navbar/navbar';
+import Timings from './Components/Timings/Timings';
 // import Header from './Components/Header';
-import Contact from './Components/Contact';
+import Contact from './Components/Contact/Contact';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -12,8 +12,8 @@ import {
 } from 'react-router-dom';
 import HomePage from './Components/HomePage';
 import Locate from './Components/Locate';
-import ShowTimings from './Components/ShowTimings';
-import Footer from './Components/Footer';
+import ShowTimings from './Components/ShowTimings/ShowTimings';
+import Footer from './Components/Footer/Footer';
 
 
 

@@ -112,14 +112,15 @@ const Locate = () => {
                     {loading ? <CircularProgressbar /> : <Button style={{ backgroundColor: '#259BAB', border: 'solid #259BAB 5px', marginTop: '5%', marginLeft: '30%', marginBottom: '10%', fontFamily: "Roboto Slab, serif" }} onClick={event => { submitLocality() }}>Submit</Button>}
 
                 </Col>
-                <Col className='App' style={{ marginLeft: "5%", marginTop: "8%" }}>
+                <Col className='App' >
                     <Map
                         mapboxAccessToken={TOKEN}
                         style={{
-                            width: "500px",
-                            height: "500px",
+                            width: "80vw",
+                            height: "80vw",
                             borderRadius: "15px",
-                            border: '2px solid red'
+                            border: '2px solid red',
+                            margin:"5vw",
                         }}
                         initialViewState={{
                             latitude: marker.longitude,

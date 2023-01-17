@@ -1,0 +1,76 @@
+
+.Timings-super-container{
+    display: flex;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .Timings-main-container{
+    display: flex;
+    flex-direction: column;
+    font-Family:"Roboto Slab serif";
+    color:"#259BAB";
+    justify-content: center;
+    align-items: center;
+  }
+  .Timings-container{
+    display: flex;
+    align-items: center;
+  }
+  .plus-minus-button{
+    position: relative;
+    top: 3vh;
+  }
+  .Timings-Textfield{
+    height: 5vh;
+    width: 15vw;
+  }
+  .Timings-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-between;
+  }
+  .Timings-Name-number{
+    display: flex;
+    
+  }
+  .Timings-submit{
+    position: relative;
+    top: 2vh;
+    left: 5vw;
+  }
+
+  .Timings-heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Timings-image{
+   position: relative;
+   left: 5vw;
+  }
+
+  @media screen and (max-width:800px){
+    .Timings-super-container{
+        display: flex;
+        flex-direction: column;
+        
+        justify-content: center;
+        align-items: center;
+      }
+      .Timings-image{
+        display: none;
+      }
+      .Timings-Textfield{
+        height: 5vh;
+        width: 25vw;
+      }
+      .Timings-submit{
+        position: relative;
+        top: 2vh;
+        left: 15vw;
+      }
+  }
